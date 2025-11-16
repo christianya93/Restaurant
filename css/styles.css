@@ -27,6 +27,54 @@ html, body {
 }
 
 /*============== header ==================*/
+
+/* ===== HEADER SUPERIOR ===== */
+.top-header {
+    width: 100%;
+    height: 60px;
+     margin-top: 0px;
+    background-color: var(--secondary-color); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10; /* encima del header normal */
+}
+
+.top-header-container {
+    display: flex;
+    gap: 80px;
+}
+
+.top-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.top-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.top-btn:hover {
+    transform: scale(1.3);
+}
+
+
+/* ===== HEADER NORMAL ===== */
 header {
 
     font-size: 22px;
@@ -36,6 +84,7 @@ header {
     position: fixed;
     background-color: var(--primary-color);
     color: var(--white-color);
+    margin-top: 60px;
 }
 
 header .container {
@@ -107,32 +156,36 @@ header .container {
 /*-------------- Menu of the Day ---------------*/
 
 #menuOfDay {
-    padding: 80px 100px;
+    padding-top: 80px 100px;
     color: var(--black-color);
 }
 
 #menuOfDay h2 {
     text-align: center;
-    font-size: 36px;
+    font-size: 86px;
+    margin-top: 80px;
     margin-bottom: 40px;
 }
 
-.specialties {
+.specialtiesContainer {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 80px;
   justify-items: center;
   align-items: center;
+  margin-top: 100px;
+  margin-bottom: 10px;
 }
 
 .specialty {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--white-color);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 50%;
+    width: 330px;
+    height: 500px;
 }
 
 .specialty h3 {
@@ -145,16 +198,53 @@ header .container {
     line-height: 1.4;
 }
 
+.specialty .price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 .specialty img {
     width: 100%;
-    height: auto;
+    height: 192px;
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
+.specialty {
+    position: relative; /* NECESARIO para ubicar el botón dentro */
+}
+
+.specialty .btn-add {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* --- UBICAR EN ESQUINA INFERIOR DERECHA --- */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.specialty .btn-add:focus {
+    outline: none;
+}
+
+.specialty .btn-add:hover {
+    background-color: var(--grey-color);
+}
+
 /*--------------menu general------------*/
 #menu {
-    padding: 80px 100px;
+    padding: 0px 100px;
     background-color: var(--primary-color);
     color: var(--white-color);
 }
@@ -214,6 +304,28 @@ th, td {
 th {
     background-color: var(--secondary-color);
     font-size: 20px;
+}
+
+tr .btn-add {
+    width: 35px;
+    height: 35px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* --- centrar dentro de la celda --- */
+    margin: 0 auto; 
+
+}
+
+tr .btn-add:hover {
+    background-color: var(--grey-color);
 }
 
 /*------- CONTENEDOR GENERAL (ABOUT + CONTACT)-------------- */
@@ -397,7 +509,7 @@ header .container {
         padding: 60px 20px;
     }
 
-    .specialties {
+    .specialtiesContainer {
         grid-template-rows: repeat(6, 1fr);
         grid-template-columns: 1fr;
     }

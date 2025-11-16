@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "imageSrc": "Acses/bandejaP.jpg",
+      "imageAlt": "Bandeja Paisa",
+      "title": "Bandeja Paisa",
+      "description": "Rice, beans, ground beef, egg, pork crackling, avocado.",
+      "price": "$18,000",
+      "addToCart": "+"
+    },
+    {
+      "imageSrc": "Acses/SancochodeGallina.jpg",
+      "imageAlt": "Hen Soup",
+      "title": "Hen Soup",
+      "description": "A traditional soup with cassava, potato, plantain, and free-range chicken.",
+      "price": "$15,000",
+      "addToCart": "+"
+    },
+    {
+      "imageSrc": "Acses/Ajiaco.jpg",
+      "imageAlt": "Ajiaco Soup",
+      "title": "Ajiaco",
+      "description": "Delicious soup with chicken, yellow potato, and corn on the cob.",
+      "price": "$15,000",
+      "addToCart": "+"
+    },
+    {
+      "imageSrc": "Acses/Lomo-Encebollado.jpeg",
+      "imageAlt": "Lomo Encebollado",
+      "title": "Grilled Beef with Onions",
+      "description": "Juicy beef steak grilled with onions, served with rice, salad, and fries.",
+      "price": "$17,000",
+      "addToCart": "+"
+    },
+    {
+      "imageSrc": "Acses/pescadoFrito.jpg",
+      "imageAlt": "Pescado Frito",
+      "title": "Fried Fish",
+      "description": "Whole fried fish with coconut rice, salad, and patacones.",
+      "price": "$19,000",
+      "addToCart": "+"
+    },
+    {
+      "imageSrc": "Acses/polloALaPlancha.jpg",
+      "imageAlt": "Pollo a la Plancha",
+      "title": "Grilled Chicken",
+      "description": "Grilled chicken breast served with mashed potatoes and vegetables.",
+      "price": "$16,000",
+      "addToCart": "+"
+    }
+  ]
+}
