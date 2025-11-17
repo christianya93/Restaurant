@@ -3,11 +3,26 @@
   getMenu();
 });
 
+ const btnShoppingCart = document.getElementById('cart-btn');
+
+
   const toggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
 
-  const urlMenuOfDay = 'https://gist.githubusercontent.com/christianya93/8a02357582693fe92012d9be87748480/raw/bfd572c728dbf8fded2b8c02a8f2cff4466a7823/menuOfDay.json';
+  const urlMenuOfDay = 'https://gist.githubusercontent.com/christianya93/8a02357582693fe92012d9be87748480/raw/076257ce9f7702da57e90f32c5dc6784341e3784/menuOfDay.json';
   const urlMenu = 'https://gist.githubusercontent.com/christianya93/3342f914fe69ecda635bc93feff6c832/raw/5e8df7ccc25c33c9a3b670709fbc216a3bda127f/menuItems.json';
+
+  // --- POPUP ELEMENTS ---
+  const popup = document.getElementById("popup");
+  const popImg = document.getElementById("popup-img");
+  const popName = document.getElementById("popup-name");
+  const popPrice = document.getElementById("popup-price");
+  const btnContinue = document.getElementById("continue-btn");
+  const btnCheckout = document.getElementById("checkout-btn");
+
+  btnShoppingCart.addEventListener('click', () => {
+   window.location.href = 'shoppingCart.html';
+ });
 
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
@@ -24,8 +39,12 @@
         <img class="img-card" src="${menu.imageSrc}" alt="${menu.imageAlt}">
         <h3 >${menu.title}</h3>
         <p >${menu.description}</p>
-        <p class="price">${menu.price}</p>
-        <button class="btn-add">${menu.addToCart}</button>
+        <p class="price">$${menu.price}</p>
+        <button class="btn-add"
+          data-name="${menu.title}"
+          data-price="${menu.price}"
+          data-img="${menu.imageSrc}">${menu.addToCart}
+        </button>
       `;
       specialtiesContainer.appendChild(menuCard);
     });
@@ -82,7 +101,11 @@ function renderMenu(menuItems) {
 
     // botón dinámico
     const buttonHTML = item.addToCart
-      ? `<button class="btn-add" data-product="${item.name}">+</button>`
+      ? `<button class="btn-add"
+          data-name="${item.name}"
+          data-price="${item.price}"
+          data-img="${item.img}">${item.addToCart}
+        </button>`
       : `<span style="color:gray; font-size: 0.9rem;">N/A</span>`;
 
     // agregar fila del producto
@@ -103,11 +126,75 @@ function renderMenu(menuItems) {
   });
 }
 
-// Eventos de click en "+"
+// Evento general para todos los botones "add-cart" o "btn-add"
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-add")) {
-    const product = e.target.dataset.product;
-    alert(`Producto añadido: ${product}`);
+
+    const name = e.target.dataset.name;
+    const price = e.target.dataset.price;
+    const img = e.target.dataset.img;
+
+    // Colocar info del producto en el popup
+    popImg.src = img;
+    popName.textContent = name;
+    popPrice.textContent = "Precio: " + price;
+
+    // Mostrar popup
+    popup.style.display = "flex";
+
+    addToCart({ name, price, img });
+
   }
 });
 
+// Botón "Seguir comprando"
+btnContinue.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+// Botón "Proceder a compra"
+btnCheckout.addEventListener("click", () => {
+  window.location.href = "shoppingCart.html"; // Cambia por tu página del carrito
+});
+
+// Cerrar popup al hacer clic afuera
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
+
+
+// --- CARRITO EN LOCALSTORAGE ---
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Buscar si ya existe el producto
+  const existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({
+      name: product.name,
+      price: Number(product.price),
+      img: product.img,
+      quantity: 1
+    });
+  }
+
+  // Guardar en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Actualizar contador
+  updateCartCount();
+}
+
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+  document.getElementById("cart-count").textContent = count;
+}
+
+// Cargar contador al iniciar
+document.addEventListener("DOMContentLoaded", updateCartCount);

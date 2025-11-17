@@ -5,7 +5,7 @@
       "imageAlt": "Bandeja Paisa",
       "title": "Bandeja Paisa",
       "description": "Rice, beans, ground beef, egg, pork crackling, avocado.",
-      "price": "$18,000",
+      "price": 18000,
       "addToCart": "+"
     },
     {
@@ -13,7 +13,7 @@
       "imageAlt": "Hen Soup",
       "title": "Hen Soup",
       "description": "A traditional soup with cassava, potato, plantain, and free-range chicken.",
-      "price": "$15,000",
+      "price": 15000,
       "addToCart": "+"
     },
     {
@@ -21,7 +21,7 @@
       "imageAlt": "Ajiaco Soup",
       "title": "Ajiaco",
       "description": "Delicious soup with chicken, yellow potato, and corn on the cob.",
-      "price": "$15,000",
+      "price": 15000,
       "addToCart": "+"
     },
     {
@@ -29,7 +29,7 @@
       "imageAlt": "Lomo Encebollado",
       "title": "Grilled Beef with Onions",
       "description": "Juicy beef steak grilled with onions, served with rice, salad, and fries.",
-      "price": "$17,000",
+      "price": 17000,
       "addToCart": "+"
     },
     {
@@ -37,7 +37,7 @@
       "imageAlt": "Pescado Frito",
       "title": "Fried Fish",
       "description": "Whole fried fish with coconut rice, salad, and patacones.",
-      "price": "$19,000",
+      "price": 19000,
       "addToCart": "+"
     },
     {
@@ -45,7 +45,7 @@
       "imageAlt": "Pollo a la Plancha",
       "title": "Grilled Chicken",
       "description": "Grilled chicken breast served with mashed potatoes and vegetables.",
-      "price": "$16,000",
+      "price": 16000,
       "addToCart": "+"
     }
   ]

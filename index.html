@@ -12,16 +12,18 @@
     <script src='js/main.js' defer></script>
 </head>
 <body>
+  <header class="top-header">
+    <div class="top-header-container">
 
-<header class="top-header">
-  <div class="top-header-container">
+      <button class="top-btn"><img src="Acses/icons/buscar.png" alt="search"></button>
+      <button class="top-btn"><img src="Acses/icons/avatar-entrar.png" alt="input"></button>
+      <button class="top-btn" id="cart-btn">
+        <img src="Acses/icons/carro-de-la-compra.png" alt="shopping cart">
+        <span id="cart-count">0</span>
+      </button>
 
-    <button class="top-btn"><img src="Acses/icons/buscar.png" alt="search"></button>
-    <button class="top-btn"><img src="Acses/icons/avatar-entrar.png" alt="input"></button>
-    <button class="top-btn"><img src="Acses/icons/carro-de-la-compra.png" alt="shopping cart"></button>
-
-  </div>
-</header>
+    </div>
+  </header>
 
   <header>
       <div class="container">
@@ -149,5 +151,25 @@
     <footer>
         <p>&copy; 2025 Flavors of Aburrá. All rights reserved.</p>
     </footer>
+
+<!-- POPUP DE PRODUCTO AÑADIDO -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-box">
+
+    <h2>Producto añadido con éxito</h2>
+
+    <img id="popup-img" src="" alt="producto">
+    <h4 id="popup-name"></h4>
+    <p id="popup-price"></p>
+
+    <div class="popup-buttons">
+      <button id="continue-btn">Seguir comprando</button>
+      <button id="checkout-btn">Realizar compra</button>
+    </div>
+
+  </div>
+</div>
+
+
 </body>
 </html>
